@@ -87,6 +87,14 @@ namespace Prob8_14
                         // ツェラーの公式
                         
                         week = (year + (year/4) - (year/100) + (year/400) + (13*month+8)/5 + j) % 7;
+                        if(j == 1)
+                        {
+                            // 1日の曜日を合わせる
+                            for(int k = 0; k < week; k++)
+                            {
+                                Console.Write("  ");
+                            }
+                        }
                         if(week == 6)
                         {
                             Console.Write("{0,2:d}",j);
@@ -107,6 +115,14 @@ namespace Prob8_14
                     {
                         // ツェラーの公式
                         week = (year + (year/4) - (year/100) + (year/400) + (13*month+8)/5 + j) % 7;
+                     if(j == 1)
+                        {
+                            // 1日の曜日を合わせる
+                            for(int k = 0; k < week; k++)
+                            {
+                                Console.Write("  ");
+                            }
+                        }
                         if(week == 6)
                         {
                             Console.Write("{0,2:d}",j);
@@ -127,6 +143,14 @@ namespace Prob8_14
                     {
                         // ツェラーの公式
                         week = (year + (year/4) - (year/100) + (year/400) + (((13*month)+8)/5) + j) % 7;
+                       if(j == 1)
+                        {
+                            // 1日の曜日を合わせる
+                            for(int k = 0; k < week; k++)
+                            {
+                                Console.Write("  ");
+                            }
+                        }
                         if(week == 6)
                         {
                             Console.Write("{0,2:d}",j);
@@ -146,6 +170,14 @@ namespace Prob8_14
                          month = i;
                          // ツェラーの公式
                          week = (year + (year/4) - (year/100) + (year/400) + (13*month+8)/5 + j) % 7;
+                       if(j == 1)
+                        {
+                            // 1日の曜日を合わせる
+                            for(int k = 0; k < week; k++)
+                            {
+                                Console.Write("  ");
+                            }
+                        }
                         if(week == 6)
                         {
                             Console.Write("{0,2:d}",j);
@@ -165,6 +197,14 @@ namespace Prob8_14
                         month = i;
                         // ツェラーの公式
                         week = (year + (year/4) - (year/100) + (year/400) + (13*month+8)/5 + j) % 7;
+                       if(j == 1)
+                        {
+                            // 1日の曜日を合わせる
+                            for(int k = 0; k < week; k++)
+                            {
+                                Console.Write("  ");
+                            }
+                        }
                         if(week == 6)
                         {
                             Console.Write("{0,2:d}",j);
