@@ -10,7 +10,6 @@ namespace Prob8_14
     {
         static void Main(string[] args)
         { 
-            //
             // 年月入力テキストボックス
             //Console.Write("年を入力してください");
             Console.WriteLine();
