@@ -15,18 +15,17 @@ namespace Prob8_14
             //Console.WriteLine();
             //Console.Write("年:");
             // 年を入力
+             Console.Write("年:");
             int year = int.Parse(Console.ReadLine());
             Console.WriteLine("{0}年",year);
             // 閏年かの確認
             int urucheck = 0;
             // 月を入力
-            //Console.Write("月:");
-            //int month = int.Parse(Console.ReadLine());
-            //Console.WriteLine("{0}月:",month);
-
+            Console.Write("月:");
+            int month = int.Parse(Console.ReadLine());
+            
             // 曜日を定義
             int week;
-            string[] weekarray = {"日","月","火","水","木","金","土"};
              
             // 閏年かの判定
             if(year % 4 == 0 && year % 100 != 0 )
@@ -41,8 +40,8 @@ namespace Prob8_14
             }
             
             // グレゴリオ暦1年1月1日から何日閏年が発生したか
-            double afgc = (year/4)+(year/400)-(year/100);
-            Console.WriteLine("{0}日",afgc);
+            //double afgc = (year/4)+(year/400)-(year/100);
+            //Console.WriteLine("{0}日",afgc);
 
             // １年の月ごとの日数を配列にする
             // 1年は12ヵ月なので長さ12の配列を作成する
@@ -50,22 +49,25 @@ namespace Prob8_14
             
             // ループが正常終了するよう、月をmonthとする。
             //int month;
-            for(int i = 1; i <= 12; i++)
-            {
+            //1年すべてを表示(for文)
+            //for(int i = 1; i <= 12; i++)
+            //{
                // 計算用に年をyear2,月をmonthとおく
                int year2 = year;
-               int month = 0;
-              Console.WriteLine("{0}月",i);
+               //int month = 0;
+               Console.WriteLine("{0}月",month);
+               // 1年全体表示の時に使用
+              //Console.WriteLine("{0}月",i);
               // 1月の曜日計算が違うので分ける
-              if(i == 1)
+              if(month == 1)
                 {
                     year2 --;
-                    month = i + 12;
+                    int month2 = month + 12;
                     // ツェラーの公式で1月2月は前年の13月14月で計算
                       for(int j = 1; j < 32; j++)
                       {
                         // ツェラーの公式
-                        week = (year2 + (year2/4) - (year2/100) + (year2/400) + (13*month+8)/5 + j) % 7;
+                        week = (year2 + (year2/4) - (year2/100) + (year2/400) + (13*month2+8)/5 + j) % 7;
                         if(j == 1)
                         {
                             // 1日の曜日を合わせる
@@ -96,14 +98,14 @@ namespace Prob8_14
                       }
                 }
                // 2月は閏年は29日
-              else if(i == 2 && urucheck == 1)
+              else if(month == 2 && urucheck == 1)
                 {
                         year2 --;
-                        month = i + 12;
+                       int month2 = month + 12;
                         for(int j = 1; j <= 29; j++)
                         {
                              // ツェラーの公式
-                             week = (year2 + (year2/4) - (year2/100) + (year2/400) + (13*month+8)/5 + j) % 7;
+                             week = (year2 + (year2/4) - (year2/100) + (year2/400) + (13*month2+8)/5 + j) % 7;
                           if(j == 1)
                           {
                               // 1日の曜日を合わせる
@@ -134,14 +136,14 @@ namespace Prob8_14
                         }
                 }
               // 2月は閏年でなければ28日
-              else if(i== 2 && urucheck == 0)
+              else if(month== 2 && urucheck == 0)
                 {
                         year2 --;
-                        month = i + 12 ;
+                       int month2 = month + 12 ;
                         for(int j = 1; j <= 28; j++)
                         {
                             // ツェラーの公式
-                            week = (year2 + (year2/4) - (year2/100) + (year2/400) + (((13*month)+8)/5) + j) % 7;
+                            week = (year2 + (year2/4) - (year2/100) + (year2/400) + (((13*month2)+8)/5) + j) % 7;
                             // 1日の曜日を合わせる    
                         if(j == 1) 
                             { 
@@ -172,11 +174,12 @@ namespace Prob8_14
                         }
                 }
               // 4月,6月,9月,11月は30日
-              else if(i == 4 || i == 6 || i == 9 || i == 11)
+              else if(month == 4 || month == 6 || month == 9 || month == 11)
                 {
                         for (int j = 1; j < 31; j++)
                         {
-                            month = i;
+                            //　月表示のfor分の際に使用
+                            //month = i;
                             // ツェラーの公式
                             week = (year + (year/4) - (year/100) + (year/400) + (13*month+8)/5 + j) % 7;
                             // 1日の曜日を合わせる
@@ -213,7 +216,7 @@ namespace Prob8_14
                 { 
                         for(int j = 1; j < 32; j++)
                         {
-                            month = i;
+                            //month = i;
                             // ツェラーの公式
                             week = (year + (year/4) - (year/100) + (year/400) + (13*month+8)/5 + j) % 7;
                               // 1日の曜日を合わせる
@@ -247,7 +250,6 @@ namespace Prob8_14
                 }
                 Console.WriteLine();
                 Console.WriteLine();
-            }
             urucheck = 0;
         }
     }
