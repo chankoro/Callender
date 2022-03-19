@@ -52,19 +52,20 @@ namespace Prob8_14
             //int month;
             for(int i = 1; i <= 12; i++)
             {
-              int year2 = year;
-              int month = 0;
+               // 計算用に年をyear2,月をmonthとおく
+               int year2 = year;
+               int month = 0;
               Console.WriteLine("{0}月",i);
               // 1月の曜日計算が違うので分ける
               if(i == 1)
                 {
+                    year2 --;
+                    month = i + 12;
                     // ツェラーの公式で1月2月は前年の13月14月で計算
-                      year --;
-                    　month = 13;
                       for(int j = 1; j < 32; j++)
                       {
                         // ツェラーの公式
-                        week = (year + (year/4) - (year/100) + (year/400) + (13*month+8)/5 + j) % 7;
+                        week = (year2 + (year2/4) - (year2/100) + (year2/400) + (13*month+8)/5 + j) % 7;
                         if(j == 1)
                         {
                             // 1日の曜日を合わせる
@@ -92,19 +93,17 @@ namespace Prob8_14
                             Console.Write("{0,2:d}",j);
                         }
                         Console.ForegroundColor = ConsoleColor.Gray;
-                        year2 = year;
                       }
-                     
                 }
                // 2月は閏年は29日
               else if(i == 2 && urucheck == 1)
                 {
-                        year --;
-                        month = 14;
+                        year2 --;
+                        month = i + 12;
                         for(int j = 1; j <= 29; j++)
                         {
                              // ツェラーの公式
-                             week = (year + (year/4) - (year/100) + (year/400) + (13*month+8)/5 + j) % 7;
+                             week = (year2 + (year2/4) - (year2/100) + (year2/400) + (13*month+8)/5 + j) % 7;
                           if(j == 1)
                           {
                               // 1日の曜日を合わせる
@@ -137,12 +136,12 @@ namespace Prob8_14
               // 2月は閏年でなければ28日
               else if(i== 2 && urucheck == 0)
                 {
-                        year --;
-                        month = 14;
+                        year2 --;
+                        month = i + 12 ;
                         for(int j = 1; j <= 28; j++)
                         {
                             // ツェラーの公式
-                            week = (year + (year/4) - (year/100) + (year/400) + (((13*month)+8)/5) + j) % 7;
+                            week = (year2 + (year2/4) - (year2/100) + (year2/400) + (((13*month)+8)/5) + j) % 7;
                             // 1日の曜日を合わせる    
                         if(j == 1) 
                             { 
@@ -170,7 +169,6 @@ namespace Prob8_14
                                    Console.Write("{0,2:d}",j);
                                   }
                             Console.ForegroundColor = ConsoleColor.Gray;
-                            year2 = year;
                         }
                 }
               // 4月,6月,9月,11月は30日
